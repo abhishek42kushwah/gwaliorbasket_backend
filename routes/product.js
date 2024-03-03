@@ -48,7 +48,6 @@ pool.query("update products set companyid=?, categoryid=?, productname=?, descri
 })
 });
 
-
 router.post('/edit_product_image',upload.single('image'), function(req, res, next) {
   pool.query("update products set image=? where productid=?", [req.file.originalname,req.body.productid],function(error,result){
   if(error)

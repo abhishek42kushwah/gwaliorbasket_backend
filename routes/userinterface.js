@@ -27,7 +27,9 @@ router.post("/add_user_address", function (req, res, next) {
         console.log("Mobileno",mobileno);
         res.status(200).json({ status: 0, message: "Server error...." });
       } else {
-        res.status(200).json({ status: true, message: "Address Submitted Succesfully" });
+        res.status(200).json({ 
+          status: true,
+           message: "Address Submitted Successfully" });
       }
       })
     })
