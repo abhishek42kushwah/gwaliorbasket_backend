@@ -9,7 +9,8 @@ router.post('/add_company_category',upload.single('icon'), function(req, res, ne
   console.log(req.file)
 pool.query("insert into categories(companyid, categoryname, description, icon, createdat, updatedat, createdby)values(?,?,?,?,?,?,?)",[req.body.companyid,req.body.categoryname,req.body.description,req.file.originalname,req.body.createdat,req.body.updatedat,req.body.createdby],function(error,result){
  if(error)
- { 
+ { console.log(error);
+  console.log("error message",error);
   res.status(200).json({status:false,message:'Server error....'})
  }
  else
@@ -40,6 +41,7 @@ router.get('/fetch_all_category', function(req, res, next) {
   pool.query ("update categories set companyid=?, categoryname=?, description=?, updatedat=? , createdby=? where categoryid=?",[req.body.companyid,req.body.categoryname,req.body.description,req.body.updateat,req.body.createdby,req.body.categoryid],function(error,result){
    if(error)
    { 
+
     res.status(200).json({status:false,message:'Server error....'})
    }
    else

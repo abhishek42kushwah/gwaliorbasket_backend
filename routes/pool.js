@@ -1,21 +1,21 @@
 var mysql= require("mysql")
-var pool=mysql.createConnection(
+try {
+      var pool=mysql.createConnection(
     {
         host:'localhost',
-       port:3306,
+        port:3306,
         user:'root',
-        password:'1234',
+        password:'123456789',
        database:'gwaliorbasket',
        connectionLimit:100,
        multipleStatements:'true',
     }
-) 
-
-pool.connect((err) => {
+    ) 
+    console.log("db Connected")
+  } catch (error) {
     if (err) {
-        console.log("err", err);
+        console.log("error", err);
         return;
     }
-    console.log("db Connected")
-})
-module.exports=pool
+  }
+module.exports=pool.connect
