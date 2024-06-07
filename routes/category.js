@@ -46,7 +46,7 @@ router.get('/fetch_all_category', function(req, res, next) {
    }
    else
    {
-    res.status(200).json({status:true,message:'Category Updated Successfully'})
+    res.status(200).json({status:true,message:'Category Updated Successfully',result:message})
    }
 
   })
